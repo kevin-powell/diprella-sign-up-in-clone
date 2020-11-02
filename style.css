@@ -1,0 +1,210 @@
+:root {
+  --spacer: 1.5rem;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.sr-only {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/*  my styles  */
+
+body {
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.7;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h1 + p {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+/* utilities */
+
+.flow > * + * {
+  margin-top: var(--spacer);
+}
+
+/* components */
+
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 0.9125rem;
+  font-weight: 500;
+  padding: 1em 4em;
+  min-width: 13rem;
+  background: white;
+  color: #333;
+  border: 0;
+  border-radius: 100vh;
+}
+
+.btn:hover,
+.btn:focus {
+  color: teal;
+}
+
+.btn[type="submit"] {
+  background: teal;
+  color: white;
+}
+.btn[type="submit"]:hover,
+.btn[type="submit"]:focus,
+.btn--social:hover,
+.btn--social:focus {
+  background: rgb(21, 177, 177);
+}
+
+.btn--social {
+  padding: 0;
+  width: 3rem;
+  height: 3rem;
+  min-width: initial;
+  background: teal;
+  display: grid;
+  place-items: center;
+  color: white;
+}
+
+.social-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacer);
+}
+
+input {
+  border: 0;
+  padding: 0.75rem 1.5rem;
+  border-radius: 100vh;
+  background: #eee;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.create-account input[type="text"],
+.create-account input[type="password"],
+.create-account input[type="email"] {
+  min-width: 10rem;
+  flex: 1 1 calc(50% - var(--spacer));
+}
+
+.terms {
+  display: block;
+}
+
+/* layout */
+
+main {
+  display: flex;
+  min-height: 100vh;
+}
+
+main > * {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 var(--spacer);
+}
+
+.switch-state {
+  background: teal;
+  color: white;
+}
