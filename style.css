@@ -93,6 +93,7 @@ body {
   font-weight: 400;
   font-style: normal;
   line-height: 1.7;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -191,8 +192,52 @@ input {
 /* layout */
 
 main {
-  display: flex;
+  display: grid;
+  grid-template-columns: 70% 1fr 0px;
   min-height: 100vh;
+}
+
+main.create-state {
+  animation: switch-state 1000ms linear reverse;
+}
+
+main.login-state {
+  animation: switch-state-reverse 1000ms linear forwards;
+}
+
+@keyframes switch-state {
+  0% {
+    grid-template-columns: 70% 1fr 0%;
+  }
+  25% {
+    grid-template-columns: 35% 1fr 0%;
+  }
+  50% {
+    grid-template-columns: 10% 1fr 10%;
+  }
+  75% {
+    grid-template-columns: 0% 1fr 35%;
+  }
+  100% {
+    grid-template-columns: 0% 1fr 70%;
+  }
+}
+@keyframes switch-state-reverse {
+  0% {
+    grid-template-columns: 70% 1fr 0%;
+  }
+  25% {
+    grid-template-columns: 35% 1fr 0%;
+  }
+  50% {
+    grid-template-columns: 10% 1fr 10%;
+  }
+  75% {
+    grid-template-columns: 0% 1fr 35%;
+  }
+  100% {
+    grid-template-columns: 0% 1fr 70%;
+  }
 }
 
 main > * {
@@ -202,9 +247,42 @@ main > * {
   justify-content: center;
   text-align: center;
   padding: 0 var(--spacer);
+  overflow: hidden;
+}
+
+.login,
+.sign-up {
+  min-width: 30rem;
+  transition: transform 500ms ease-out, opacity 350ms linear;
+}
+
+.login-state .login {
+  transform: translateX(50%);
+  opacity: 0;
+}
+.create-state .sign-up {
+  transform: translateX(-50%);
+  opacity: 0;
 }
 
 .switch-state {
   background: teal;
+  background-image: url("https://unsplash.it/100");
+  background-attachment: fixed;
   color: white;
+  z-index: 10;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
 }
